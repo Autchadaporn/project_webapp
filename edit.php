@@ -22,9 +22,13 @@
     width: 1550px;
     height: auto;  
     padding: 5px 5px 5px 5px;
-    background :rgba(255, 255, 255, 0.8);;
-    
-}
+    background :rgba(255, 255, 255, 0.8);;}
+.button {
+    float :right;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}    
+
 </style>
 <body>
 
@@ -36,8 +40,8 @@
 
 <div class="class">
 <!-- <a href='addmember.php'>เพิ่ม</a>  -->
-<a href="addmember.php" class="btn btn-outline-secondary" role="button" aria-pressed="true" style="margin-top: 10px;">เพิ่ม</a>
-<a href="loginpage.php" class="btn btn-outline-secondary" role="button" aria-pressed="true" style="margin-top: 10px; ">Logout</a>
+<a href="loginpage.php" class="btn btn-outline-secondary button" role="button" aria-pressed="true" style="margin-top: 10px; ">Logout</a>
+<a href="addmember.php" class="btn btn-outline-secondary button" role="button" aria-pressed="true" style="margin-top: 10px;">เพิ่ม</a>
 
 
 <?php
@@ -57,11 +61,11 @@ $result = mysqli_query($conn, $query);
     echo "<tr align='center' bgcolor='#CCCCCC'> <td>ชื่อเล่น</td> <td>ชื่อ</td> <td>นามสกุล</td> <td>Name</td> <td>LastName</td> <td>team</td> <td>วันเกิด</td> <td>ส่วนสูง</td> <td>จังหวัด</td> <td>สิ่งที่ชอบ</td> <td>กรุ๊ปเลือด</td> <td>งานอดิเรก</td> <td>แก้ไข</td> <td>ลบ</td> </tr>";
     while($row = mysqli_fetch_array($result)) { 
     echo "<tr>";
-    echo "<td>" .$row["nickname"] .  "</td> "; 
+    echo strtoupper("<td>" .$row["nickname"]).  "</td> "; 
     echo "<td>" .$row["fnameTH"] .  "</td> ";  
     echo "<td>" .$row["lnameTH"] .  "</td> ";
-    echo "<td>" .$row["fnameEN"] .  "</td> ";
-    echo "<td>" .$row["lnameEN"] .  "</td> ";
+    echo strtoupper("<td>" .$row["fnameEN"]) .  "</td> ";
+    echo strtoupper("<td>" .$row["lnameEN"]) .  "</td> ";
     echo "<td>" .$row["team"] .  "</td> ";
     echo "<td>" .$row["birth"] .  "</td> ";
     echo "<td>" .$row["height"] .  "</td> ";

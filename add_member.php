@@ -75,7 +75,7 @@
   if (mysqli_query($conn, $sql)) {
     //เอาไฟล์เข้าfolder uploads
     move_uploaded_file($_FILES["file"]["tmp_name"],$fileImages);
-    header("Location:homepage.php");
+    header("Location:edit.php");
     // echo $id;
     // print_r( $_FILES);
 } else {

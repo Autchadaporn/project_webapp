@@ -77,7 +77,7 @@ div.desc {
 <body> 
 <form>
   <div class="header">
-  <a href="/" class="text-center">
+  <a href="" class="text-center">
                 <img class="header-logo" src="https://www.cgm48official.com/assets/images/logo-cgm48.svg">
   </a>
   </div>
