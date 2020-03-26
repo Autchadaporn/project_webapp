@@ -1,0 +1,51 @@
+.header {
+    background-color: #49C5A8;;
+    padding: 30px;
+    text-align: center;
+    font-size: 50px;
+    font-family:  Impact, Charcoal, sans-serif;
+    letter-spacing: 3px ;
+}
+h1{
+    color: aliceblue;
+}
+
+img {
+    margin-top: 10px;
+}
+
+.inputarea{
+    display: flex;
+    margin-top: 5px;
+}
+
+.column {
+    float: left;
+    padding: 10px;
+  }
+  
+  /* Left and right column */
+  .column.side {
+    width: 25%;
+  }
+  
+  /* Middle column */
+  .column.middle {
+    width: 60%;
+  }
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+  @media screen and (max-width: 600px) {
+    .column.side, .column.middle {
+      width: 100%;
+    }
+  }
+
+  

@@ -1,0 +1,66 @@
+.header {
+    background-color: #49C5A8;;
+    padding: 30px;
+    text-align: center;
+    font-size: 50px;
+    font-family:  Impact, Charcoal, sans-serif;
+    letter-spacing: 3px ;
+}
+h1{
+    color: aliceblue;
+}
+h5{
+    margin: 15px;
+
+    letter-spacing: 1px ;
+}
+
+input {
+    letter-spacing: 2px ; /* ความห่างระหว่างตัวอักษร */
+    
+    line-height: 18pt ; /*ความห่างระหว่างบรรทัด*/
+}
+
+.inputarea{
+    display: flex;
+    margin-top: 10px;
+}
+
+.class{
+    width: 750px;
+    height: 600px;  
+    padding: 50px;
+    background :rgba(255, 255, 255, 0.5);;
+    
+}
+
+.column {
+    float: left;
+    padding: 10px;
+  }
+  
+  /* Left and right column */
+  .column.side {
+    width: 25%;
+  }
+  
+  /* Middle column */
+  .column.middle {
+    width: 60%;
+  }
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+  @media screen and (max-width: 600px) {
+    .column.side, .column.middle {
+      width: 100%;
+    }
+  }
+
+  

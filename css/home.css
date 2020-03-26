@@ -1,13 +1,13 @@
 
 /* Add a black background color to the top navigation */
 .topnav {
-  background-color: rgb(10, 141, 134);
+  background-image: url("https://f.ptcdn.info/299/064/000/psi3anbx9vXDL2QOKGu-o.png;");
   overflow: hidden;
 }
 
 /* Style the links inside the navigation bar */
 .topnav a {
-  float: left;
+  float: center;
   color: #f2f2f2;
   text-align: center;
   padding: 14px 16px;
@@ -31,5 +31,57 @@
   max-width: 1100px;
   height: 100px;
   margin-top: 10px; 
+}
+.header {
+  background-color: #37b9b4;
+  padding: 30px;
+  text-align: center;
+  font-size: 35px;
+}
+  
+div.gallery {
+  margin: 5px;
+  border: 1px solid #ccc;
+  float: center;
+  width: 255px;
+}
+
+div.gallery:hover {
+  border: 2px solid #777;
+}
+
+div.gallery img {
+  width: 100%;
+  height: auto;
+}
+
+div.desc {
+  padding: 15px;
+  text-align: center;
+  
+}
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto ;
+  grid-gap: 10px;
+  background-color: #d9f1f1 ;
+  padding: 70px;
+  
+}
+
+.grid-container > div {
+  background-color: #ffffff;
+  text-align: center;
+  padding: 15px 0;
+  font-size: 20px;
+}
+.footer {
+  background-color: #37b9b4 ;
+  padding: 10px;
+  text-align: center;
+}
+
+a{
+  margin-top: 5px;
 }
 
