@@ -30,6 +30,8 @@ if($id!=''){
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <!--bootstrap จบ -->
+
+
 <style>
   body {
     background-image: url("cgm.jpg");
@@ -62,29 +64,29 @@ if($id!=''){
   <div style="width:141px">
     <h5>ชื่อเล่น:</h5>
   </div>
-  <input type="text" name="nickname" value="<?php if($id!=''){echo $row['nickname'];} ?>" >
+  <input type="text" name="nickname" value="<?php if($id!=''){echo $row['nickname'];} ?> " >
 </div>
 
 <div class="inputarea">
   <div style="width:141px">
     <h5>ชื่อ:</h5>
   </div> 
-  <input type="text" name="fnameTH" value="<?php if($id!=''){echo $row['fnameTH'];} ?>"> 
+  <input type="text" name="fnameTH" value="<?php if($id!=''){echo $row['fnameTH'];} ?> " onkeyup="lettersOnlyTH(this)"> 
   <div style="width:141px">
     <h5>นามสกุล:</h5>
   </div>
-  <input type="text" name="lnameTH" value="<?php if($id!=''){echo $row['lnameTH'];} ?>">
+  <input type="text" name="lnameTH" value="<?php if($id!=''){echo $row['lnameTH'];} ?>" onkeyup="lettersOnlyTH(this)">
 </div>
 
 <div class="inputarea">
   <div style="width:141px">
     <h5>Name:</h5> 
   </div>
-  <input type="text" name="fnameEN" value="<?php if($id!=''){echo $row['fnameEN'];} ?>">
+  <input type="text" name="fnameEN" value="<?php if($id!=''){echo $row['fnameEN'];} ?>" onkeyup="lettersOnlyEN(this)"/>
   <div style="width:141px">
     <h5>Last Name:</h5> 
   </div>
-  <input type="text" name="lnameEN" value="<?php if($id!=''){echo $row['lnameEN'];} ?>">
+  <input type="text" name="lnameEN" value="<?php if($id!=''){echo $row['lnameEN'];} ?>" onkeyup="lettersOnlyEN(this)"/>
 </div>
 
 <div class="inputarea">
@@ -148,7 +150,7 @@ if($id!=''){
   <div style="width:141px">
     <h5>รูป:</h5> 
   </div>
-  <input type="file" name="file" value="<?php if($id!=''){echo $row['img'];} ?>" >
+  <input type="file" name="file" value="<?php if($id!=''){echo  $row['img'];} ?>" >
 </div>
 <?php 
 if(isset($_SESSION['name']) && $id!=''){ ?>
@@ -174,6 +176,25 @@ if(isset($_SESSION['name']) && $id!=''){ ?>
 
 </form> 
 
+<!-- <script type='text/javascript'>
+function check_char(elm){
+	if(!elm.value.match(/^[ก-ฮa-z0-9]$/i) && elm.value.length>0){
+		alert('ไม่สามารถใช้ตัวอักษรพิเศษได้');
+		elm.value='';
+	}
+}
+</script> --> 
+<!-- onkeyup="check_char(this)" -->
+<script>
+  function lettersOnlyEN(input) {
+    var regex = /[^a-z -]/gi;
+    input.value = input.value.replace(regex,"");
+  }
+  function lettersOnlyTH(input) {
+    var regex = /[^ก-ฮ ๅ ฯ ฤ]/gi;
+    input.value = input.value.replace(regex,"");
+  }
+</script>
       
 </body>
 </html>
