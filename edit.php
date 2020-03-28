@@ -1,3 +1,16 @@
+<?php
+    // show_status.php
+    session_start();
+
+    // if no session then back to login.php
+    if(!isset($_SESSION['name'])) {
+    // if(isset($_SESSION['user']) == null) {
+    //if($_SESSION['user'] == null) {
+        header("Location:loginpage.php");
+    }
+    // else
+
+?>
 <html>
 <header>
 <meta charset="UTF-8">
@@ -40,7 +53,7 @@
 
 <div class="class">
 <!-- <a href='addmember.php'>เพิ่ม</a>  -->
-<a href="loginpage.php" class="btn btn-outline-secondary button" role="button" aria-pressed="true" style="margin-top: 10px; ">Logout</a>
+<a href="logout.php" class="btn btn-outline-secondary button" role="button" aria-pressed="true" style="margin-top: 10px; ">Logout</a>
 <a href="addmember.php" class="btn btn-outline-secondary button" role="button" aria-pressed="true" style="margin-top: 10px;">เพิ่ม</a>
 
 
@@ -58,7 +71,7 @@ $result = mysqli_query($conn, $query);
     
     echo "<table border='1' align='center' width='1500'>";
     //หัวข้อตาราง
-    echo "<tr align='center' bgcolor='#CCCCCC'> <td>ชื่อเล่น</td> <td>ชื่อ</td> <td>นามสกุล</td> <td>Name</td> <td>LastName</td> <td>team</td> <td>วันเกิด</td> <td>ส่วนสูง</td> <td>จังหวัด</td> <td>สิ่งที่ชอบ</td> <td>กรุ๊ปเลือด</td> <td>งานอดิเรก</td> <td>แก้ไข</td> <td>ลบ</td> </tr>";
+    echo "<tr align='center' bgcolor='#CCCCCC'> <td>ชื่อเล่น</td> <td>ชื่อ</td> <td>นามสกุล</td> <td>Name</td> <td>LastName</td> <td>team</td> <td>วันเกิด</td> <td>ส่วนสูง</td> <td>จังหวัด</td> <td>สิ่งที่ชอบ</td> <td>กรุ๊ปเลือด</td> <td>งานอดิเรก</td> <td>อนุมัติ</td>  <td>แก้ไข</td> <td>ลบ</td> </tr>";
     while($row = mysqli_fetch_array($result)) { 
     echo "<tr>";
     echo strtoupper("<td>" .$row["nickname"]).  "</td> "; 
@@ -73,7 +86,12 @@ $result = mysqli_query($conn, $query);
     echo "<td>" .$row["favor"] .  "</td> ";
     echo "<td>" .$row["bloodgroup"] .  "</td> ";
     echo "<td>" .$row["hobby"] .  "</td> ";
-
+    if($row["approve"]!=''){
+        echo "<td>" .$row["approve"] .  "</td> ";
+    }
+    else{
+        echo "<td>ยังไม่อนุมัติ</td> ";
+    }
     //แก้ไขข้อมูล
     echo "<td><a href='addmember.php?id=$row[id]'>edit</a></td> ";
     
@@ -82,6 +100,8 @@ $result = mysqli_query($conn, $query);
     echo "</tr>";
     }
     echo "</table>";
+    
+
     //5. close connection
     mysqli_close($conn);
     ?>

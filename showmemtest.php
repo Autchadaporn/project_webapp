@@ -109,7 +109,7 @@
       <div style="width:141px">
       Province : 
       </div>  
-    <?php echo strtoupper( $row["province"])."<br>";?>
+    <?php echo  $row["province"]."<br>";?>
     </div>
 
     <div class="inputarea"> 
@@ -118,7 +118,7 @@
       </div>     
     <?php echo  $row["favor"]."<br>";?>
     </div>
-
+    
      <div class="inputarea">
      Blood Group  :    <?php echo  $row["bloodgroup"]."<br>";?> 
      </div>

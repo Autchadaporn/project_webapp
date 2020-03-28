@@ -83,18 +83,20 @@ div.desc {
   </div>
 </form>
 
-<h3>MEMER</h3>
+<h3>MEMBER</h3>
 
 <div class="grid-container">
 
 <?php
 while($row = mysqli_fetch_array($result)) {
-  echo "<div class='gallery'> 
-  <a target='blank' href='showmemtest.php?ID=" . $row['id'] ."'>
-  <img src='".$row['img']."' alt='Cinque Terre' width='600' height='400'>
-  </a>
-  <div class='desc'>". strtoupper($row["nickname"])."</div>
-  </div>";
+  if($row['approve'] == 'อนุมัติ' ){
+    echo "<div class='gallery'> 
+    <a target='blank' href='showmemtest.php?ID=" . $row['id'] ."'>
+    <img src='".$row['img']."' alt='Cinque Terre' width='600' height='400'>
+    </a>
+    <div class='desc'>". strtoupper($row["nickname"])."</div>
+    </div>";
+  }
 }
 
 ?>

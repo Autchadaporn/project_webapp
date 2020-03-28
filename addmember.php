@@ -1,6 +1,6 @@
 <?php
 include('connect.php');
-
+session_start();
 $id=isset($_GET['id']) ? $_GET['id']:'';
 
 if($id!=''){
@@ -150,10 +150,21 @@ if($id!=''){
   </div>
   <input type="file" name="file" value="<?php if($id!=''){echo $row['img'];} ?>" >
 </div>
-
-
+<?php 
+if(isset($_SESSION['name']) && $id!=''){ ?>
+<div style="display:flex; align-item:middle;">
+  <label style="margin-right:10px;margin-left:10px">
+    <input type="radio" id="approve" name="approve"<?php if($row['approve']=='อนุมัติ'){ ?> checked <?php } ?> value="อนุมัติ">อนุมัติ
+  </label><br>
+  <label>
+    <input type="radio" id="approve" name="approve"<?php if($row['approve']=='ยังไม่อนุมัติ' or $row['approve']==''){ ?> checked <?php } ?> value="ยังไม่อนุมัติ">
+    ยังไม่อนุมัติ
+  </label><br>
+</div>
+<?php }
+?>
 <div class="inputarea" style="margin-left:500px;" >
-<a href="edit.php" style="margin-right:10px;">cancle</a>
+<a href="edit.php" style="margin-right:10px;">cancel</a>
 <input type="submit" name="save" value="save">
 </div>
 
