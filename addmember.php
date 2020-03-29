@@ -71,7 +71,7 @@ if($id!=''){
   <div style="width:141px">
     <h5>ชื่อ:</h5>
   </div> 
-  <input type="text" name="fnameTH" value="<?php if($id!=''){echo $row['fnameTH'];} ?> " onkeyup="lettersOnlyTH(this)"> 
+  <input type="text" name="fnameTH" value="<?php if($id!=''){echo $row['fnameTH'];} ?>" onkeyup="lettersOnlyTH(this)"> 
   <div style="width:141px">
     <h5>นามสกุล:</h5>
   </div>
@@ -103,7 +103,7 @@ if($id!=''){
   <div style="width:141px" >
     <h5>วันเกิด:</h5> 
   </div>
-  <input type="date" name="birth" value="<?php if($id!=''){echo $row['birth'];} ?>">
+  <input type="date" name="birth" data-date-format="DD MMMM YYYY" value="<?php if($id!=''){echo $row['birth'];} ?>">
 </div>
 
 <div class="inputarea" >
@@ -191,9 +191,16 @@ function check_char(elm){
     input.value = input.value.replace(regex,"");
   }
   function lettersOnlyTH(input) {
-    var regex = /[^ก-ฮ ๅ ฯ ฤ]/gi;
+    var regex = /[^ก-ฮ  ่  ้  ๊  ๋  ็  ํ  ั  ี  ิ  ื  ึ  ์  ุ  ู  ฺ แ เ ะ า ำ ไ ใ ๅ ฤ ฯ ]/gi;
     input.value = input.value.replace(regex,"");
   }
+
+  function check_char_TH(elm){
+	if(!elm.value.match(/^[ก-ฮ  ่  ้  ๊  ๋  ็  ํ  ั  ี  ิ  ื  ึ  ์  ุ  ู  ฺ แ เ ะ า ำ ไ ใ ๅ ฤ ฯ ]+$/i) && elm.value.length>0){
+		alert('ไม่สามารถใช้ตัวอักษรพิเศษได้');
+		elm.value='';
+	}
+}
 </script>
       
 </body>
